@@ -10,7 +10,8 @@ app.on('ready', ()=>{
         height:400,
         webPreferences:{
             nodeIntegration: true
-        }
+        },
+        resizable: false
     })
     mainWindow.loadURL(`file://${__dirname}/app/pages/index.html`)
 })
@@ -19,6 +20,8 @@ app.on('window-all-closed',()=>{
     app.quit()
 })
 
+
+
 let aboutWindow = null
 ipcMain.on('abrir-janela-sobre',()=>{
     if(aboutWindow == null){
@@ -26,7 +29,12 @@ ipcMain.on('abrir-janela-sobre',()=>{
         aboutWindow = new BrowserWindow({
             width: 300,
             height: 200,
-            alwaysOnTop: true
+            alwaysOnTop: true,
+            resizable: false,
+            frame: false,
+            webPreferences: {
+                nodeIntegration: true
+            },
         })
 
         aboutWindow.on('closed', ()=>{
@@ -35,4 +43,8 @@ ipcMain.on('abrir-janela-sobre',()=>{
         
         aboutWindow.loadURL(`file://${__dirname}/app/pages/about.html`)
     }
+})
+
+ipcMain.on('fechar-janela-sobre',()=>{
+    aboutWindow.close()
 })
