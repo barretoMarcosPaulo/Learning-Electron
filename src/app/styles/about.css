@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 18px;
+}
+
+.container button{
+    width: 100%;
+    margin-top: 17%;
+    cursor: pointer;
+    height: 25px;
+    justify-content: center;
+    align-items: center;    
+}
