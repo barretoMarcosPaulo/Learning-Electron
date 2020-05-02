@@ -11,7 +11,7 @@ app.on('ready', ()=>{
         webPreferences:{
             nodeIntegration: true
         },
-        resizable: false
+        // resizable: false
     })
     mainWindow.loadURL(`file://${__dirname}/app/pages/index.html`)
 })
