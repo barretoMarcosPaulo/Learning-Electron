@@ -1,13 +1,15 @@
 const moment = require('moment')
 let seconds
+let timer
 
 module.exports = {
     
     startTimer(element){
         let time = moment.duration(element.textContent)
         seconds = time.asSeconds()
-         
-        setInterval(()=>{
+        clearInterval(timer)
+
+        timer = setInterval(()=>{
             seconds++
             element.textContent = this.timeFormat(seconds)
         },1000)
@@ -18,6 +20,6 @@ module.exports = {
     },
     
     stopTimer(){
-        
+        clearInterval(timer)
     }
 }
