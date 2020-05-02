@@ -52,6 +52,7 @@ html, body {
     padding-top: 13px;
     margin: 0 auto;
     display: block;
+    cursor: pointer;
 }
 .tempo{
     font-size: 5.5em;
