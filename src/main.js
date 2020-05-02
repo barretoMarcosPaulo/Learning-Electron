@@ -28,7 +28,7 @@ ipcMain.on('abrir-janela-sobre',()=>{
      
         aboutWindow = new BrowserWindow({
             width: 300,
-            height: 200,
+            height: 220,
             alwaysOnTop: true,
             resizable: false,
             frame: false,
@@ -41,7 +41,7 @@ ipcMain.on('abrir-janela-sobre',()=>{
             aboutWindow = null
         })
         
-        aboutWindow.loadURL(`file://${__dirname}/app/pages/about.html`)
+        aboutWindow.loadURL(`file://${__dirname}/app/pages/sobre.html`)
     }
 })
 
