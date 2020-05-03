@@ -1,6 +1,8 @@
 const { app } = require('electron')
 const { BrowserWindow } = require('electron')
 const { ipcMain } = require('electron')
+const data = require('./data')
+
 
 app.allowRendererProcessReuse = true
 
@@ -51,5 +53,5 @@ ipcMain.on('fechar-janela-sobre',()=>{
 
 
 ipcMain.on('stop-timer', (event, course , time)=>{
-    console.log(course, time)
+    data.salvaDados(course,time)
 })
