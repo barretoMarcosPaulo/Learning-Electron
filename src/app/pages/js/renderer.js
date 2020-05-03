@@ -4,6 +4,7 @@ const timer = require('./timer')
 let linkSobre = document.querySelector('#link-sobre');
 let btnPlay = document.querySelector('.botao-play')
 let linkTime = document.querySelector('.tempo') 
+let course = document.querySelector('.curso')
 
 let sourceImgs = ['img/play-button.svg','img/stop-button.svg']
 let play = false
@@ -17,7 +18,7 @@ btnPlay.addEventListener('click', function(){
     btnPlay.src = sourceImgs[0]
 
     if(play){
-        timer.stopTimer()
+        timer.stopTimer(course.textContent)
         play = false
     }else{
         timer.startTimer(linkTime)

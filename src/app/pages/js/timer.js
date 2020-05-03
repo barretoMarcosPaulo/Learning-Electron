@@ -1,15 +1,17 @@
+const { ipcRenderer } = require('electron')
 const moment = require('moment')
 let seconds
-let timer
+let timerId
+let time
 
 module.exports = {
     
     startTimer(element){
-        let time = moment.duration(element.textContent)
+        time = moment.duration(element.textContent)
         seconds = time.asSeconds()
-        clearInterval(timer)
+        clearInterval(timerId)
 
-        timer = setInterval(()=>{
+        timerId = setInterval(()=>{
             seconds++
             element.textContent = this.timeFormat(seconds)
         },1000)
@@ -19,7 +21,10 @@ module.exports = {
         return moment().startOf('day').seconds(seconds).format("HH:mm:ss")
     },
     
-    stopTimer(){
-        clearInterval(timer)
+    stopTimer(course){
+        let timeLearning = this.timeFormat(seconds)
+        ipcRenderer.send('stop-timer', course, timeLearning)
+        clearInterval(timerId)
+
     }
 }

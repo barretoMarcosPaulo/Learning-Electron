@@ -48,3 +48,8 @@ ipcMain.on('abrir-janela-sobre',()=>{
 ipcMain.on('fechar-janela-sobre',()=>{
     aboutWindow.close()
 })
+
+
+ipcMain.on('stop-timer', (event, course , time)=>{
+    console.log(course, time)
+})
