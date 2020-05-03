@@ -1,5 +1,6 @@
 const { ipcRenderer } = require('electron');
 const timer = require('./timer')
+const data = require('../../../data')
 
 let linkSobre = document.querySelector('#link-sobre');
 let btnPlay = document.querySelector('.botao-play')
@@ -8,6 +9,13 @@ let course = document.querySelector('.curso')
 
 let sourceImgs = ['img/play-button.svg','img/stop-button.svg']
 let play = false
+
+window.onload = ()=>{
+    data.recuperarDados(course.textContent)
+        .then((dados)=>{
+            linkTime.textContent=dados.tempoDeEstudo
+        })
+}
 
 linkSobre.addEventListener('click' , function(){
     ipcRenderer.send('abrir-janela-sobre');

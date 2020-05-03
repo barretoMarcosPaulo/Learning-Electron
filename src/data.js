@@ -18,7 +18,7 @@ module.exports = {
                 tempoDeEstudo: tempo
             }
 
-            jsonfile.writeFile(ArquivoDoCurso,dados)
+            jsonfile.writeFile(ArquivoDoCurso,dados, {spaces:2})
     },
 
     criaArquivoDeCurso(nomeArquivo, conteudoArquivo){
@@ -30,4 +30,9 @@ module.exports = {
                 console.log(error)
             })
     },
+
+    recuperarDados(curso){
+        let arquivoDoCurso = path.join(__dirname, `../data/${curso}.json`)
+        return jsonfile.readFile(arquivoDoCurso)
+    }
 }
