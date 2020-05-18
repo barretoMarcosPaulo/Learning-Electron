@@ -43,5 +43,7 @@ module.exports = {
         let cursos =  files.map((file)=>{
             return file.substr(0, file.lastIndexOf('.'))
         })
+
+        return cursos
     }
 }

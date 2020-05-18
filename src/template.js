@@ -5,14 +5,22 @@ module.exports = {
     generate(){
         let template = [
             { 
-                'label' : 'Cursos' 
+                label : 'Cursos' 
             },
 
             {
-                'type' : 'separator'
+                type : 'separator'
             }
         ]
         let cursos = data.getNameCursos()
+        cursos.forEach((curso)=>{
+            let menuItem = {
+                label:curso,
+                type:'radio'
+            }
+            template.push(menuItem)
+        })
+
         return template
     }
 }
