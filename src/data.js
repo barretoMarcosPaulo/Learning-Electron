@@ -34,5 +34,14 @@ module.exports = {
     recuperarDados(curso){
         let arquivoDoCurso = path.join(__dirname, `../data/${curso}.json`)
         return jsonfile.readFile(arquivoDoCurso)
+    },
+
+    getNameCursos(){
+        let dir = path.join(__dirname, `../data`)
+
+        let files = fs.readdirSync(dir)
+        let cursos =  files.map((file)=>{
+            return file.substr(0, file.lastIndexOf('.'))
+        })
     }
 }
