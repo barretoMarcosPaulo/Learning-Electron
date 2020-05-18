@@ -35,3 +35,11 @@ btnPlay.addEventListener('click', function(){
 
 })
 
+ipcRenderer.on('curso-trocado', (event,curso)=>{
+    course.textContent = curso
+    data.recuperarDados(curso)
+        .then((dados)=>{
+            linkTime.textContent = dados.tempoDeEstudo
+        })
+})
+

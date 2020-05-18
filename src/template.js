@@ -2,7 +2,7 @@ const data = require('./data')
 
 
 module.exports = {
-    generate(){
+    generate(window){
         let template = [
             { 
                 label : 'Cursos' 
@@ -16,7 +16,10 @@ module.exports = {
         cursos.forEach((curso)=>{
             let menuItem = {
                 label:curso,
-                type:'radio'
+                type:'normal',
+                click: ()=>{
+                    window.send('curso-trocado',curso)
+                }
             }
             template.push(menuItem)
         })

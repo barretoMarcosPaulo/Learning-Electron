@@ -16,9 +16,9 @@ app.on('ready', ()=>{
             nodeIntegration: true
         },
     })
-    
+
     tray = new Tray(__dirname+'/app/pages/img/icon-tray.png')
-    let temp = template.generate()
+    let temp = template.generate(mainWindow)
     let trayMenu = Menu.buildFromTemplate(temp)
     tray.setContextMenu(trayMenu)
     
