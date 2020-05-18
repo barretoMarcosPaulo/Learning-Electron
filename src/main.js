@@ -1,10 +1,12 @@
 const { app } = require('electron')
 const { BrowserWindow } = require('electron')
 const { ipcMain } = require('electron')
+const { Tray, Menu } = require('electron')
 const data = require('./data')
 
 
 app.allowRendererProcessReuse = true
+let tray = null;
 
 app.on('ready', ()=>{
     let mainWindow = new BrowserWindow({
@@ -15,6 +17,13 @@ app.on('ready', ()=>{
         },
         // resizable: false
     })
+    tray = new Tray(__dirname+'/app/pages/img/icon-tray.png')
+    let trayMenu = Menu.buildFromTemplate([
+        {label: 'Teste' , type: 'radio'},
+        {label: 'OlaMundo' , type: 'radio'}
+    ])
+    tray.setContextMenu(trayMenu)
+    
     mainWindow.loadURL(`file://${__dirname}/app/pages/index.html`)
 })
 
