@@ -6,6 +6,8 @@ let linkSobre = document.querySelector('#link-sobre');
 let btnPlay = document.querySelector('.botao-play')
 let linkTime = document.querySelector('.tempo') 
 let course = document.querySelector('.curso')
+let btnAddCourse = document.querySelector('.botao-adicionar')
+
 
 let sourceImgs = ['img/play-button.svg','img/stop-button.svg']
 let play = false
@@ -43,3 +45,10 @@ ipcRenderer.on('curso-trocado', (event,curso)=>{
         })
 })
 
+btnAddCourse.addEventListener('click', ()=>{
+    let fieldCourse = document.querySelector('.campo-adicionar')
+    let newCourse = fieldCourse.value 
+
+    course.textContent = newCourse
+    
+})
