@@ -8,8 +8,9 @@ const template = require('./template')
 app.allowRendererProcessReuse = true
 let tray = null;
 
+let mainWindow = null
 app.on('ready', ()=>{
-    let mainWindow = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         width:600,
         height:400,
         webPreferences:{
@@ -61,4 +62,10 @@ ipcMain.on('fechar-janela-sobre',()=>{
 
 ipcMain.on('stop-timer', (event, course , time)=>{
     data.salvaDados(course,time)
+})
+
+ipcMain.on('atualizar-tray',(event,course)=>{
+    let novoTemplate = template.add(course, mainWindow)
+    let novoTrayMenu = Menu.buildFromTemplate(novoTemplate)
+    tray.setContextMenu(novoTrayMenu)
 })

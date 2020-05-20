@@ -50,5 +50,9 @@ btnAddCourse.addEventListener('click', ()=>{
     let newCourse = fieldCourse.value 
 
     course.textContent = newCourse
+    linkTime.textContent = '00:00:00'
+    fieldCourse.value=''
+
+    ipcRenderer.send('atualizar-tray', newCourse)
     
 })
