@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^8.2.5",
+    "electron": "^13.6.6",
     "jsonfile-promised": "0.0.1",
     "moment": "^2.25.1"
   }
